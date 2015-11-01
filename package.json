@@ -1,0 +1,27 @@
+{
+  "name": "play-rx-js",
+  "version": "1.0.0",
+  "description": "Learning about RX",
+  "main": "index.js",
+  "dependencies": {
+    "rx": "^4.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RebarDesign/play-rx-js.git"
+  },
+  "keywords": [
+    "rxjs",
+    "observables"
+  ],
+  "author": "@SebFlorian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RebarDesign/play-rx-js/issues"
+  },
+  "homepage": "https://github.com/RebarDesign/play-rx-js#readme"
+}
