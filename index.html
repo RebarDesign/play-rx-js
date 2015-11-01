@@ -7,5 +7,25 @@
 </head>
 <body>
 	<h1 id="output"></h1>
+	<style>
+		.rd-sprite{
+			height:50px;
+			width:50px;
+			background:red;
+			z-index:99;
+			position:absolute;
+			
+		}
+		.rd-sprite:hover{
+			cursor: pointer;
+		}
+		.rd-button{
+			position: absolute;
+    		bottom: 100px;
+		}
+	</style>
+	<div class="rd-sprite" id="sprite">
+	</div>
+	<button class="rd-button" id="button">Reset</button>
 </body>
 </html>
