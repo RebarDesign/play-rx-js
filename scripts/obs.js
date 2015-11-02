@@ -20,13 +20,15 @@ require(['rx'], function(Rx) {
         mouseDown
           .concatMap(function(dragPoint){
             dragPoint.preventDefault();
-            return containerMouseMoves.takeUntil(containerMouseUp).
-						map(function(movePoint) {
-							return {
-								pageX: movePoint.pageX - dragPoint.offsetX,
-								pageY: movePoint.pageY - dragPoint.offsetY
-							};
-						});
+            // prevent from going up
+            event.stopPropagation();
+              return containerMouseMoves.takeUntil(containerMouseUp).
+              map(function(movePoint) {
+                return {
+                  pageX: movePoint.pageX - dragPoint.offsetX,
+                  pageY: movePoint.pageY - dragPoint.offsetY
+                };
+              });
           });
       
   // on each reset button press, move sprite to 200.200
@@ -42,10 +44,14 @@ require(['rx'], function(Rx) {
   
   // change sprite position on mouse drag
   mouseDrags.forEach(function onNext(dragPoint) {
-    console.log(dragPoint);
-    sprite.style.left = dragPoint.pageX + "px";
-    sprite.style.top = dragPoint.pageY + "px";
-  }, function onError(error){
+    //  make sure we stick to clicked element
+     if (dragPoint.target == dragPoint.currentTarget)
+          {
+            console.log(dragPoint);
+            sprite.style.left = dragPoint.pageX + "px";
+            sprite.style.top = dragPoint.pageY + "px";
+          }
+    }, function onError(error){
     console.error('error')
   }, function onCompleted(){
     console.log('done');
